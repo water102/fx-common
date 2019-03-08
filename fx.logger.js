@@ -1,7 +1,6 @@
 class FxLogger {
-  logLevel = 'info';
-
   constructor() {
+    this.logLevel = 'info';
   }
 
   fixConsole() {

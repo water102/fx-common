@@ -23,7 +23,7 @@ class FxCommonUtil {
 
   createGuid() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
-      let r = (Math.random() * 16) | 0,
+      const r = (Math.random() * 16) | 0,
         v = c == 'x' ? r : (r & 0x3) | 0x8;
       return v.toString(16);
     });
@@ -60,8 +60,7 @@ class FxCommonUtil {
   parseBoolean(val) {
     if (this.isNullOrEmpty(val)) return false;
     val = val.toLowerCase();
-    let bool;
-    bool = (() => {
+    const bool = (() => {
       switch (false) {
         case val !== 'true':
         case val !== '1':
@@ -132,7 +131,8 @@ class FxCommonUtil {
         /0+$/,
         ''
       )}`;
-      result = result.replace(/\.$/, '');
+      const regex = new RegExp('\\' + decimalDelimiter + '$', 'i');
+      result = result.replace(regex, '');
     }
     return result;
   }

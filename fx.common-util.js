@@ -1,3 +1,5 @@
+const shortid = require('shortid');
+
 class FxCommonUtil {
   loopWithTimeout(items, cb, timeout) {
     if (items.length === 0) return;
@@ -29,28 +31,18 @@ class FxCommonUtil {
     });
   }
 
-  uniqueCode(prefix = '') {
-    const characters =
-      'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    const ticks = new Date().getTime().toString();
-    let code = `${prefix}`;
-    for (let i = 0; i < characters.length; i += 2) {
-      if (i + 2 > ticks.length) continue;
-      const number = parseInt(ticks.substr(i, 2));
-      if (number > characters.length - 1) {
-        const sNumber = number.toString();
-        const one = sNumber.substr(0, 1);
-        const two = sNumber.substr(1, 1);
-        code += characters[parseInt(one)];
-        code += characters[parseInt(two)];
-      } else {
-        code += characters[number];
-      }
-    }
-    return code;
+  uniqueCode(
+    prefix = '',
+    characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_'
+  ) {
+    shortid.characters(characters);
+    return `${prefix}${shortid.generate()}`;
   }
 
-  randomString(length, chars) {
+  randomString(
+    length = 8,
+    chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+  ) {
     let result = '';
     for (let i = length; i > 0; --i)
       result += chars[Math.floor(Math.random() * chars.length)];

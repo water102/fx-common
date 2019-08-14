@@ -1,7 +1,8 @@
 {
   "name": "@water102/fx-common",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "",
+  "author": "HoanNN",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -42,7 +43,6 @@
     "type": "git",
     "url": "git+https://github.com/water102/fx-common.git"
   },
-  "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/water102/fx-common/issues"

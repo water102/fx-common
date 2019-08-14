@@ -1,5 +1,3 @@
-const shortid = require('shortid');
-
 class FxCommonUtil {
   loopWithTimeout(items, cb, timeout) {
     if (items.length === 0) return;
@@ -31,10 +29,11 @@ class FxCommonUtil {
     });
   }
 
-  uniqueCode(
+  async uniqueCode(
     prefix = '',
     characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_'
   ) {
+    const { default: shortid } = await import('shortid');
     shortid.characters(characters);
     return `${prefix}${shortid.generate()}`;
   }
@@ -140,8 +139,9 @@ class FxCommonUtil {
     return Number(val);
   }
 
-  roundTo2DecimalPlaces(val) {
-    return Math.round(val * 100) / 100;
+  roundDecimalPlaces(val, lengthOfDecimal = 2) {
+    const t = Math.pow(10, lengthOfDecimal);
+    return Math.round(val * t) / t;
   }
 
   setByPath(obj, path, value) {
@@ -209,6 +209,54 @@ class FxCommonUtil {
       input instanceof Date ||
       Object.prototype.toString.call(input) === '[object Date]'
     );
+  }
+
+  isMobileNumber(mobileNumber) {
+    let flag = false;
+    mobileNumber = mobileNumber.replace(/[^\d]/g, '');
+
+    if (
+      !fxCommonUtil.isNullOrEmpty(mobileNumber) ||
+      mobileNumber.length === 10
+    ) {
+      const firstNumber = Number(mobileNumber.substring(1, 3));
+      const listMobileFirstNumber = [
+        32, // Viettel
+        33, // Viettel
+        34, // Viettel
+        35, // Viettel
+        36, // Viettel
+        37, // Viettel
+        38, // Viettel
+        39, // Viettel
+        52, // Vietnamobile
+        56, // Vietnamobile
+        58, // Vietnamobile
+        59, // Gmobile
+        80, // Mã mạng Cục Bưu điện Trung ương
+        81, // Vinaphone
+        82, // Vinaphone
+        83, // Vinaphone
+        84, // Vinaphone
+        85, // Vinaphone
+        86, // Viettel
+        87, // Indochina Telecom
+        88, // Vinaphone
+        89, // MobiFone
+        90, // MobiFone
+        91, // Vinaphone
+        92, // Vietnamobile
+        93, // MobiFone
+        94, // Vinaphone
+        95, // Gmobile
+        96, // Viettel
+        97, // Viettel
+        98, // Viettel
+        99 // Gmobile
+      ];
+      flag = listMobileFirstNumber.indexOf(firstNumber) !== -1;
+    }
+    return flag;
   }
 
   removeEmptyProperties(obj) {

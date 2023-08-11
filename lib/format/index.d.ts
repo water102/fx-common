@@ -6,4 +6,5 @@ export * from './number-format';
 export * from './round-decimal-places';
 export * from './slugify';
 export * from './to-boolean';
+export * from './to-hex-string';
 //# sourceMappingURL=index.d.ts.map

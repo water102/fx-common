@@ -1,12 +1,15 @@
 {
-  "name": "@fx/common",
+  "name": "@water102/fx-common",
   "version": "2.0.0",
-  "private": true,
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "directories": {
     "src": "src",
     "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/water102/fx-common.git"
   },
   "scripts": {
     "build": "tsc --build",

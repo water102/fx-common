@@ -1,4 +1,4 @@
-import { isNilOrEmpty } from "../validate";
+import { isNilOrEmpty } from '../validate';
 
 export function clearNilProperties(obj: any) {
   for (const i in obj) {

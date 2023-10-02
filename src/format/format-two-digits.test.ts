@@ -1,6 +1,6 @@
 import { describe, expect, test } from '@jest/globals';
 
-import { formatTwoDigits } from './format-two-digits'
+import { formatTwoDigits } from './format-two-digits';
 
 describe('formatTwoDigits', () => {
   test('< 10', () => {
@@ -14,4 +14,4 @@ describe('formatTwoDigits', () => {
     expect(formatTwoDigits(15)).toBe('15');
     expect(formatTwoDigits(19)).toBe('19');
   });
-})
+});

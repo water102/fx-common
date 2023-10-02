@@ -1,4 +1,4 @@
-import { getAllPrototypeMethodNames } from "../utils";
+import { getAllPrototypeMethodNames } from '../utils';
 
 export function bindService<T>(service: T): T {
   if (!service) return service;
@@ -10,4 +10,4 @@ export function bindService<T>(service: T): T {
   }
 
   return serviceObject;
-};
+}

@@ -1,1 +1,1 @@
-export * from './bind-service'
+export * from './bind-service';

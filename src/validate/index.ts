@@ -1,5 +1,5 @@
 export * from './uuid-validate';
-export * from './are-objects-equal'
+export * from './are-objects-equal';
 export * from './is-array';
 export * from './is-date';
 export * from './is-external-link';

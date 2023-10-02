@@ -3,7 +3,9 @@ export type CancelablePromise<T> = {
   cancel: () => void;
 };
 
-export function makeCancelablePromise<T>(promise: Promise<T>): CancelablePromise<T> {
+export function makeCancelablePromise<T>(
+  promise: Promise<T>
+): CancelablePromise<T> {
   let hasCanceled = false;
 
   const cancelablePromise: CancelablePromise<T> = {
@@ -23,7 +25,7 @@ export function makeCancelablePromise<T>(promise: Promise<T>): CancelablePromise
     }),
     cancel: () => {
       hasCanceled = true;
-    },
+    }
   };
 
   return cancelablePromise;

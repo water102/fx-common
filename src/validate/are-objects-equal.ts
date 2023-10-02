@@ -1,4 +1,4 @@
-import { isFunction } from "../utils";
+import { isFunction } from '../utils';
 
 export function areObjectsEqual(obj1: any, obj2: any): boolean {
   if (obj1 === obj2) {
@@ -10,10 +10,10 @@ export function areObjectsEqual(obj1: any, obj2: any): boolean {
   }
 
   if (
-    typeof obj1 !== 'object'
-    || typeof obj2 !== 'object'
-    || obj1 === null
-    || obj2 === null
+    typeof obj1 !== 'object' ||
+    typeof obj2 !== 'object' ||
+    obj1 === null ||
+    obj2 === null
   ) {
     return false;
   }

@@ -1,1 +1,1 @@
-export const toText = (res: any) => res.text()
+export const toText = (res: any) => res.text();

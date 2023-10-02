@@ -1,4 +1,3 @@
-
 export function isDate(input: unknown) {
   return (
     input instanceof Date ||

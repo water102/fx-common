@@ -1,4 +1,4 @@
-import { randomElement } from "./random-element";
+import { randomElement } from './random-element';
 
 // Define an array of elements for testing
 const sampleArray = [1, 'two', { key: 'value' }, [4, 5, 6]];

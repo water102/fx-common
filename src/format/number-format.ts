@@ -1,4 +1,4 @@
-import { isNilOrEmpty } from "../validate";
+import { isNilOrEmpty } from '../validate';
 
 export function numberFormat(
   value: number,
@@ -18,16 +18,13 @@ export function numberFormat(
     '})+' +
     (lengthOfDecimal > 0 ? '\\D' : '$') +
     ')';
-  let result = (decimalDelimiter
-    ? num.replace('.', decimalDelimiter)
-    : num
+  let result = (
+    decimalDelimiter ? num.replace('.', decimalDelimiter) : num
   ).replace(new RegExp(re, 'g'), '$&' + sectionsDelimiter);
   const results = result.split(decimalDelimiter);
   if (results.length > 1) {
-    const {
-      [0]: valBeforeDecimalDelimiter,
-      [1]: valAfterDecimalDelimiter
-    } = results;
+    const { [0]: valBeforeDecimalDelimiter, [1]: valAfterDecimalDelimiter } =
+      results;
     result = `${valBeforeDecimalDelimiter}${decimalDelimiter}${valAfterDecimalDelimiter.replace(
       /0+$/,
       ''

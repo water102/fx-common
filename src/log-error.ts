@@ -1,4 +1,5 @@
-export const logError = (message = 'error') => (error: any) => {
-  console.error(message, error);
-  throw error
-}
+export const logError =
+  (message = 'error') =>
+    (error: unknown) => {
+      console.error(message, error);
+    };

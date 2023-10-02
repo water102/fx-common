@@ -1,4 +1,4 @@
-import { addMinutes } from "./add-minutes";
+import { addMinutes } from './add-minutes';
 
 describe('addMinutes function', () => {
   test('should return the correct date when adding positive minutes', () => {

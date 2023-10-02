@@ -1,3 +1,4 @@
-import { isNil } from 'ramda'
+import { isNil } from 'ramda';
 
-export const isObject = (value: unknown) => !isNil(value) && typeof value === 'object'
+export const isObject = (value: unknown) =>
+  !isNil(value) && typeof value === 'object';

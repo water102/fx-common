@@ -1,4 +1,8 @@
-export function clearNumberFormat(displayVal: string, sectionsDelimiter = ',', decimalDelimiter = '.') {
+export function clearNumberFormat(
+  displayVal: string,
+  sectionsDelimiter = ',',
+  decimalDelimiter = '.'
+) {
   if (typeof displayVal == 'number') return displayVal;
   let val = displayVal.toString();
   const re = new RegExp('[' + sectionsDelimiter + ']');

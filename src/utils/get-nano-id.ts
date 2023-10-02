@@ -1,5 +1,4 @@
-import { nanoid } from "nanoid";
-
-export const getNanoId = (length: number = 21): string => {
-  return nanoid(length)
+export const getNanoId = async (length: number = 21): Promise<string> => {
+  const { nanoid } = await require('nanoid');
+  return nanoid(length);
 };

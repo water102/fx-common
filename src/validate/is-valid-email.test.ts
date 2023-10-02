@@ -1,4 +1,4 @@
-import { isValidEmail } from "./is-valid-email";
+import { isValidEmail } from './is-valid-email';
 
 describe('isValidEmail function', () => {
   test('should return true for valid email addresses', () => {
@@ -6,7 +6,7 @@ describe('isValidEmail function', () => {
       'test@example.com',
       'john.doe@example.co.uk',
       'user-123@example.net',
-      'name.lastname@example.org',
+      'name.lastname@example.org'
     ];
 
     validEmails.forEach((email) => {
@@ -22,7 +22,7 @@ describe('isValidEmail function', () => {
       'name@domain.',
       '@example.com',
       'name@-example.com',
-      'name@example..com',
+      'name@example..com'
     ];
 
     invalidEmails.forEach((email) => {

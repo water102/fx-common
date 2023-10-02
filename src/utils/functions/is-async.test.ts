@@ -1,4 +1,4 @@
-import { isAsync } from "./is-async";
+import { isAsync } from './is-async';
 
 describe('isAsync function', () => {
   test('should return true for an asynchronous function', () => {

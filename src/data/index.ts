@@ -1,1 +1,1 @@
-export * from './accept-types'
+export * from './accept-types';

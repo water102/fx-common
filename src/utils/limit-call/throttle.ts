@@ -1,5 +1,7 @@
-
-export function throttle<Args extends unknown[]>(fn: (...args: Args) => void, cooldown: number) {
+export function throttle<Args extends unknown[]>(
+  fn: (...args: Args) => void,
+  coolDown: number
+) {
   let lastArgs: Args | undefined;
 
   const run = () => {
@@ -10,15 +12,15 @@ export function throttle<Args extends unknown[]>(fn: (...args: Args) => void, co
   };
 
   const throttled = (...args: Args) => {
-    const isOnCooldown = !!lastArgs;
+    const isOnCoolDown = !!lastArgs;
 
     lastArgs = args;
 
-    if (isOnCooldown) {
+    if (isOnCoolDown) {
       return;
     }
 
-    window.setTimeout(run, cooldown);
+    setTimeout(run, coolDown);
   };
 
   return throttled;

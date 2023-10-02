@@ -1,4 +1,4 @@
-import { isUuId } from './is-uuid'
+import { isUuId } from './is-uuid';
 
 describe('isUuId function', () => {
   test('should return true for valid UUID', () => {

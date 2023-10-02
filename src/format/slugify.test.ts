@@ -1,4 +1,4 @@
-import { slugify } from "./slugify";
+import { slugify } from './slugify';
 
 describe('slugify', () => {
   // Test trường hợp chuỗi chỉ chứa các ký tự Latin không dấu và khoảng trắng, hàm sẽ trả về slug phù hợp

@@ -1,4 +1,4 @@
-import { randomIntBetween } from "./random-int-between";
+import { randomIntBetween } from './random-int-between';
 
 describe('randomIntBetween', () => {
   test('min and max > 0', () => {

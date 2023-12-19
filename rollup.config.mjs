@@ -10,18 +10,21 @@ import terser from '@rollup/plugin-terser';
 import pkg from './package.json' assert { type: 'json' }
 const isProduction = process.env.NODE_ENV === 'production';
 
+console.log('isProduction', isProduction);
+
 export default {
   input: 'src/index.ts',
   output: [
     {
       file: 'dist/index.js',
       format: 'cjs', // CommonJS format for Node.js
-      sourcemap: true,
+      sourcemap: !isProduction,
     },
     {
       file: 'dist/index.mjs',
       format: 'es', // ES module format for modern browsers
-      sourcemap: true,
+      minifyInternalExports: true,
+      sourcemap: !isProduction,
     },
   ],
   plugins: [

@@ -1,1 +1,3 @@
-export declare const toJson: (res: any) => any;
+export declare const toJson: <T>(res: {
+    json: () => Promise<T>;
+}) => T;

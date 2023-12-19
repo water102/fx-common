@@ -7,6 +7,8 @@ export * from './get-current-timestamp';
 export * from './get-date-from-timestamp';
 export * from './get-first-day-of-month';
 export * from './get-last-day-of-month';
+export * from './time-duration-helper';
 export * from './get-timestamp';
 export * from './get-unix-timestamp';
+export * from './time-duration-helper';
 export * from './to-utc';

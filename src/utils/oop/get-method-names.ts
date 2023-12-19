@@ -1,15 +1,16 @@
-export function getMethodNames(obj: any, methodNames: string[] = [], excludeBaseClass = 'Object'): string[] {
+import { isFunction } from '../../validate/is-function';
+
+export function getMethodNames(obj: any, stopClassName?: string): string[] {
   if (!obj) return []; // recursive approach
-  if (Object.getPrototypeOf(obj)?.constructor?.name === excludeBaseClass) return [];
+  if (Object.getPrototypeOf(obj)?.constructor?.name === stopClassName)
+    return [];
 
   return [
     ...new Set(
-      methodNames
-        .concat(Object.getOwnPropertyNames(obj))
-        .concat(
-          getMethodNames(Object.getPrototypeOf(obj), methodNames)
-        )
-        .filter((key) => key !== 'constructor' && typeof obj[key] === 'function')
+      [
+        ...Object.getOwnPropertyNames(obj),
+        ...getMethodNames(Object.getPrototypeOf(obj), stopClassName)
+      ].filter((key) => key !== 'constructor' && isFunction(obj[key]))
     )
-  ]
+  ];
 }

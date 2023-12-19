@@ -18,6 +18,7 @@
     "prettier"
   ],
   "rules": {
+    "no-control-regex": 0,
     "prettier/prettier": 1,
     "indent": [
       "error",
@@ -25,14 +26,14 @@
     ],
     "linebreak-style": "off",
     "quotes": [
-      "error",
+      "warn",
       "single"
     ],
     "semi": [
-      "error",
+      "warn",
       "always"
     ],
-    "@typescript-eslint/no-explicit-any": "warn",
+    "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-unused-vars": [
       "off",
       {

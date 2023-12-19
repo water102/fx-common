@@ -1,1 +1,3 @@
-export declare const toText: (res: any) => any;
+export declare const toText: (res: {
+    text: () => Promise<string>;
+}) => Promise<string>;

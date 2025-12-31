@@ -1,0 +1,46 @@
+{
+  "name": "@water102/fx-common",
+  "version": "4.0.7",
+  "engines": {
+    "npm": ">=10.9",
+    "node": ">=23.3"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "npx rimraf dist out",
+    "build": "npm run clean && rollup -c",
+    "build:prod": "npm run clean && cross-env NODE_ENV=production rollup -c",
+    "prepublishOnly": "npm run build:prod",
+    "test": "jest",
+    "prettier-format": "prettier --config .prettierrc \"src/**/*.ts\" --write"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^29.0.0",
+    "@rollup/plugin-image": "^3.0.3",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-replace": "^6.0.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "@types/jest": "^30.0.0",
+    "@types/ramda": "^0.31.1",
+    "esbuild": "^0.27.2",
+    "jest": "^30.2.0",
+    "prettier": "^3.7.4",
+    "rollup": "^4.54.0",
+    "ts-jest": "^29.4.6",
+    "tslib": "^2.8.1",
+    "typescript": "^5.9.3"
+  },
+  "peerDependencies": {
+    "dayjs": "^1.11.19",
+    "nanoid": "^5.1.6",
+    "ramda": "^0.32.0",
+    "uuid": "^13.0.0"
+  }
+}

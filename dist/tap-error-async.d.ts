@@ -1,0 +1,1 @@
+export declare const tapErrorAsync: import("ts-toolbelt/out/Function/Curry").Curry<(a_0: (value: Promise<unknown>) => Promise<unknown>, a_1: (value: Promise<unknown>, error: unknown) => unknown, a_2: Promise<unknown>) => Promise<unknown>>;

@@ -23,12 +23,15 @@ export default {
       file: 'dist/index.js',
       format: 'cjs', // CommonJS format for Node.js
       sourcemap: !isProduction,
+      // get-nano-id uses dynamic import('nanoid'); inline so single-file output.file is valid.
+      inlineDynamicImports: true,
     },
     {
       file: 'dist/index.mjs',
       format: 'es', // ES module format for modern browsers
       minifyInternalExports: true,
       sourcemap: !isProduction,
+      inlineDynamicImports: true,
     },
   ],
   plugins: [
@@ -44,7 +47,11 @@ export default {
         __packageName__: () => JSON.stringify(pkg.name),
       }
     }),
-    nodeResolve(),
+    nodeResolve({
+      // Rollup runs on Node; without this, uuid resolves to dist-node (node:crypto).
+      // Browser consumers need uuid's dist/ build (Web Crypto), same as our AES helpers.
+      exportConditions: ['import', 'module', 'browser', 'default'],
+    }),
     commonjs(),
     typescript({
       tsconfig: './tsconfig.json'

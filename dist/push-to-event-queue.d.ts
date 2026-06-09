@@ -1,1 +1,1 @@
-export declare const pushToEventQueue: (func: () => void) => NodeJS.Timeout;
+export declare const pushToEventQueue: (func: () => void) => number;

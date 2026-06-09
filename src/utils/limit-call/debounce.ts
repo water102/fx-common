@@ -2,7 +2,7 @@ export function debounce<Args extends unknown[]>(
   fn: (...args: Args) => void,
   delay: number
 ) {
-  let timeoutID: NodeJS.Timeout | number | undefined;
+  let timeoutID: ReturnType<typeof setTimeout> | undefined;
   let lastArgs: Args | undefined;
 
   const run = () => {

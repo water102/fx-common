@@ -2,6 +2,8 @@
 
 Suggestions to improve and extend the `@water102/fx-common` library, based on current structure and usage.
 
+**Monorepo integration:** see [docs/architecture/fx-packages-integration.md](../../docs/architecture/fx-packages-integration.md) for tsh5-wide adoption matrix, proposed API additions (`isEnvTruthy`, `asFiniteInt`, `pascalToKebab` fix), and phased rollout.
+
 ---
 
 ## 1. Package exports & tree-shaking

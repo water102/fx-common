@@ -6,6 +6,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import terser from '@rollup/plugin-terser';
+import { SUBPATH_ENTRIES } from './subpath-entries.mjs';
 
 const rawPackageJSON = await fs.readFile('./package.json', { encoding: 'utf8' });
 
@@ -16,22 +17,33 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 console.log('isProduction', isProduction);
 
+/** @type {Record<string, string>} */
+const input = {
+  index: 'src/index.ts',
+  ...Object.fromEntries(
+    SUBPATH_ENTRIES.map((name) => [name, `src/${name}/index.ts`]),
+  ),
+};
+
 export default {
-  input: 'src/index.ts',
+  input,
   output: [
     {
-      file: 'dist/index.js',
-      format: 'cjs', // CommonJS format for Node.js
+      dir: 'dist',
+      format: 'cjs',
+      entryFileNames: (chunkInfo) =>
+        chunkInfo.name === 'index' ? '[name].js' : `entries/${chunkInfo.name}.js`,
+      chunkFileNames: 'chunks/[name]-[hash].js',
       sourcemap: !isProduction,
-      // get-nano-id uses dynamic import('nanoid'); inline so single-file output.file is valid.
-      inlineDynamicImports: true,
     },
     {
-      file: 'dist/index.mjs',
-      format: 'es', // ES module format for modern browsers
+      dir: 'dist',
+      format: 'es',
+      entryFileNames: (chunkInfo) =>
+        chunkInfo.name === 'index' ? 'index.mjs' : `entries/${chunkInfo.name}.mjs`,
+      chunkFileNames: 'chunks/[name]-[hash].mjs',
       minifyInternalExports: true,
       sourcemap: !isProduction,
-      inlineDynamicImports: true,
     },
   ],
   plugins: [

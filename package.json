@@ -3,11 +3,48 @@
   "version": "4.0.7",
   "engines": {
     "npm": ">=10.9",
-    "node": ">=23.3"
+    "node": ">=20"
   },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "typings": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./type-guards": {
+      "types": "./dist/type-guards/index.d.ts",
+      "import": "./dist/entries/type-guards.mjs",
+      "require": "./dist/entries/type-guards.js"
+    },
+    "./format": {
+      "types": "./dist/format/index.d.ts",
+      "import": "./dist/entries/format.mjs",
+      "require": "./dist/entries/format.js"
+    },
+    "./validate": {
+      "types": "./dist/validate/index.d.ts",
+      "import": "./dist/entries/validate.mjs",
+      "require": "./dist/entries/validate.js"
+    },
+    "./date-time": {
+      "types": "./dist/date-time/index.d.ts",
+      "import": "./dist/entries/date-time.mjs",
+      "require": "./dist/entries/date-time.js"
+    },
+    "./promise": {
+      "types": "./dist/promise/index.d.ts",
+      "import": "./dist/entries/promise.mjs",
+      "require": "./dist/entries/promise.js"
+    },
+    "./string": {
+      "types": "./dist/string/index.d.ts",
+      "import": "./dist/entries/string.mjs",
+      "require": "./dist/entries/string.js"
+    }
+  },
   "files": [
     "dist"
   ],
@@ -29,6 +66,7 @@
     "@rollup/plugin-typescript": "^12.3.0",
     "@types/jest": "^30.0.0",
     "@types/ramda": "^0.32.0",
+    "cross-env": "^10.1.0",
     "esbuild": "^0.28.1",
     "jest": "^30.4.2",
     "prettier": "^3.8.4",

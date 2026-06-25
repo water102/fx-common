@@ -20,5 +20,12 @@ describe('pascalToKebab', () => {
   test('Handles already lowercase', () => {
     expect(pascalToKebab('hello')).toBe('hello');
   });
+
+  test('Handles acronyms and digits (tsh5 component naming)', () => {
+    expect(pascalToKebab('FormBackground')).toBe('form-background');
+    expect(pascalToKebab('NPCDialog')).toBe('npc-dialog');
+    expect(pascalToKebab('BankItem2')).toBe('bank-item2');
+    expect(pascalToKebab('HTTPServer')).toBe('http-server');
+  });
 });
 

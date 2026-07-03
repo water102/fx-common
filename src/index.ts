@@ -23,6 +23,8 @@ export * from './get-greeting';
 export * from './log-error';
 export * from './logger';
 export * from './push-to-event-queue';
+export * from './required-latest-event-queue';
+export * from './sliding-window-rate-limit';
 export * from './tap-error';
 export * from './tap-error-async';
 export * from './tap-log';
